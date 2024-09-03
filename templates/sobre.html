@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Sistema de Cálculo de Volume</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</head>
+
+<body class="font-[Poppins] bg-gradient-to-t from-[#fbc2eb] to-[#a6c1ee] min-h-screen flex flex-col">
+
+    <header class="bg-white shadow-md">
+        <nav class="flex justify-between items-center w-[90%] mx-auto py-4">
+            <div>
+                <img class="w-16 cursor-pointer" src="../static/cabeca.png" alt="Logo">
+            </div>
+            <div
+                class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex  items-center px-5">
+                <ul class="flex md:flex-row flex-col md:items-center  md:gap-8 gap-4">
+                    <li><a class="hover:text-gray-500" href="{{ url_for('index') }}">Home</a></li>
+                    <li><a class="hover:text-gray-500" href="{{ url_for('historico') }}">Histórico</a></li>
+                    <li><a class="hover:text-gray-500" href="#">Contato</a></li>
+                    <li><a class="hover:text-gray-500" href="#">Sobre</a></li>
+                </ul>
+            </div>
+            <div class="flex items-center gap-6">
+                <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
+            </div>
+        </nav>
+    </header>
+
+    <div class="flex flex-col items-center justify-center flex-grow bg-gray-300 p-4">
+        <div class="max-w-[600px] w-full bg-white p-10 rounded-lg shadow-md">
+            <p class="text-lg text-center text-justify">
+                Este sistema foi desenvolvido Por Ivonildo Lima com a finalidade de facilitar ávida nas operações com a
+                Ucaq.
+                É uma aplicação web desenvolvida com as tecnologias Flask, HTML, Javascript, Python, SQLite como banco,
+                que permite o cálculo de volumes com base em distâncias e opções predefinidas. Os resultados dos
+                cálculos são armazenados em
+                um banco de dados SQLite, com funcionalidades para visualização e exclusão dos registros.
+                O sistema possui uma interface para inserir dados, como a cidade e o poço, calcular o volume e salvar os
+                resultados.
+                Ele também mantém um histórico dos últimos 15 resultados e permite que os usuários gerenciem esses
+                registros diretamente pela
+                interface do site. Além disso, o sistema utiliza mensagens flash para fornecer feedback ao usuário sobre
+                as operações realizadas.
+            </p>
+        </div>
+    </div>
+
+    <footer class="flex flex-col items-center bg-white text-center  text-surface dark:bg-neutral-700 dark:text-white">
+        <div class="container pt-2">
+            <div class="mb-6 flex justify-center space-x-2">
+                <!-- Social media icons aqui -->
+            </div>
+        </div>
+        <div class="w-full bg-black/5 p-4 text-center">
+            © 2024 Copyright: <a href="#">Ivonildo Lima</a>
+        </div>
+    </footer>
+
+    <script>
+        const navLinks = document.querySelector('.nav-links');
+        function onToggleMenu(e) {
+            e.name = e.name === 'menu' ? 'close' : 'menu';
+            navLinks.classList.toggle('top-[9%]');
+        }
+    </script>
+</body>
+
+</html>
